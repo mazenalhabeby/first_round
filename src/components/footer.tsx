@@ -1,0 +1,35 @@
+import {FaXTwitter} from "react-icons/fa6"
+import {FaTelegramPlane} from "react-icons/fa"
+import {LogoIcon} from "@/assets"
+
+const Footer = () => {
+  return (
+    <div className="flex flex-row flex-wrap items-center justify-center gap-6 py-6 text-sm text-center xl:gap-20">
+      <span className="text-gray-500">
+        Copyright &copy; {new Date().getFullYear()} Amazen Trust. All rights
+        reserved.
+      </span>
+      <ul className="flex flex-row gap-4">
+        <li>terms of service</li>
+        <li>privacy policy</li>
+      </ul>
+      <ul className="flex flex-row gap-4">
+        <li>
+          <FaXTwitter />
+        </li>
+        <li>
+          <FaTelegramPlane />
+        </li>
+      </ul>
+      <div className="flex flex-row items-center gap-2">
+        <span>Built with Trust, Powered by Innovation</span>
+        <LogoIcon className="text-xl text-orange-400" />
+        <span className="font-semibold tracking-wider uppercase">
+          Amazen Trust
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export default Footer
