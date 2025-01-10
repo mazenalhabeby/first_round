@@ -160,7 +160,7 @@ export function Globe({globeConfig, data}: WorldProps) {
         .atmosphereColor(defaultProps.atmosphereColor)
         .atmosphereAltitude(defaultProps.atmosphereAltitude)
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .hexPolygonColor((e) => {
+        .hexPolygonColor((_e) => {
           return defaultProps.polygonColor
         })
       startAnimation()
@@ -183,14 +183,14 @@ export function Globe({globeConfig, data}: WorldProps) {
         return (e as {arcAlt: number}).arcAlt * 1
       })
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .arcStroke((e) => {
+      .arcStroke((_e) => {
         return [0.32, 0.28, 0.3][Math.round(Math.random() * 2)]
       })
       .arcDashLength(defaultProps.arcLength)
       .arcDashInitialGap((e) => (e as {order: number}).order * 1)
       .arcDashGap(15)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .arcDashAnimateTime((e) => defaultProps.arcTime)
+      .arcDashAnimateTime((_e) => defaultProps.arcTime)
 
     globeRef.current
       .pointsData(data)
@@ -201,6 +201,7 @@ export function Globe({globeConfig, data}: WorldProps) {
 
     globeRef.current
       .ringsData([])
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .ringColor((e: any) => (t: any) => e.color(t))
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
@@ -221,13 +222,14 @@ export function Globe({globeConfig, data}: WorldProps) {
       )
 
       globeRef.current.ringsData(
-        globeData.filter((d, i) => numbersOfRings.includes(i))
+        globeData.filter((_d, i) => numbersOfRings.includes(i))
       )
     }, 2000)
 
     return () => {
       clearInterval(interval)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globeRef.current, globeData])
 
   return (
@@ -244,6 +246,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio)
     gl.setSize(size.width, size.height)
     gl.setClearColor(0xffaaff, 0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return null
@@ -285,13 +288,14 @@ export function World(props: WorldProps) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function hexToRgb(hex: string) {
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+  hex = hex.replace(shorthandRegex, function (_m, r, g, b) {
     return r + r + g + g + b + b
   })
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return result
     ? {
         r: parseInt(result[1], 16),
@@ -301,6 +305,7 @@ export function hexToRgb(hex: string) {
     : null
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function genRandomNumbers(min: number, max: number, count: number) {
   const arr = []
   while (arr.length < count) {
