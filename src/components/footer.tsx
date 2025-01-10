@@ -1,6 +1,7 @@
 import {FaXTwitter} from "react-icons/fa6"
 import {FaTelegramPlane} from "react-icons/fa"
 import {LogoIcon} from "@/assets"
+import {Link} from "react-router"
 
 const Footer = () => {
   return (
@@ -10,8 +11,9 @@ const Footer = () => {
         reserved.
       </span>
       <ul className="flex flex-row gap-4">
-        <li>terms of service</li>
-        <li>privacy policy</li>
+        <li>
+          <Link to={"/privacy"}>privacy policy</Link>
+        </li>
       </ul>
       <ul className="flex flex-row gap-4">
         <li>

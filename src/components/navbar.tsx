@@ -1,6 +1,6 @@
 import Logo from "./logo"
 import {Button} from "./ui/button"
-import {NavLink} from "react-router"
+import {Link, NavLink, useLocation} from "react-router"
 import {
   Sheet,
   SheetContent,
@@ -13,14 +13,22 @@ import {FaBarsStaggered} from "react-icons/fa6"
 import NavLinks from "./nav-links"
 
 const Navbar = () => {
+  const location = useLocation()
+  const isHomePage = location.pathname === "/"
   return (
     <nav className="sticky top-0 left-0 z-50 bg-black bg-opacity-80 backdrop-blur-md">
       <div className="container flex items-center justify-between p-4 mx-auto">
-        <Logo />
-        <NavLinks
-          className="flex-row items-center justify-center hidden space-x-6 lg:flex"
-          substyles="capitalize text-sm cursor-pointer font-medium"
-        />
+        <Link to="/">
+          <Logo />
+        </Link>
+        {isHomePage ? (
+          <NavLinks
+            className="flex-row items-center justify-center hidden space-x-6 lg:flex"
+            substyles="capitalize text-sm cursor-pointer font-medium"
+          />
+        ) : (
+          <div className="flex flex-1" />
+        )}
         <div className="flex items-center space-x-4">
           <Button asChild className="capitalize rounded-full">
             <NavLink to="https://amazen-trust.gitbook.io/white-paper">

@@ -7,7 +7,10 @@ export function MainLayout() {
   return (
     <React.Fragment>
       <Navbar />
-      <Outlet />
+      <div className="min-h-[calc(100vh-136px)]">
+        <Outlet />
+      </div>
+
       <Footer />
     </React.Fragment>
   )
