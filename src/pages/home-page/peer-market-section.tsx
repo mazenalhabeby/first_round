@@ -54,7 +54,7 @@ const PeerMarketSection = () => {
       <ContainerScroll
         titleComponent={
           <React.Fragment>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
+            <h1 className="text-xl font-semibold text-black lg:text-4xl dark:text-white">
               Secure, Instant and Affordably
               <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">

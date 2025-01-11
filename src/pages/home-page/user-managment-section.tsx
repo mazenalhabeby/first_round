@@ -31,13 +31,13 @@ const UserManagmentSection = () => {
           <img
             src={sdkLogin}
             alt="sdk login"
-            className="max-w-sm select-none "
+            className="select-none max-w-[80%] lg:max-w-sm"
             draggable={false}
           />
           <img
             src={sdkExpress}
             alt="sdk express"
-            className="max-w-sm select-none"
+            className="max-w-[80%] lg:max-w-sm select-none"
             draggable={false}
           />
         </div>
