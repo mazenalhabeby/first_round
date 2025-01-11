@@ -8,22 +8,10 @@ import NetworkSection from "./network-section"
 import {logoFooter} from "@/assets"
 import {FaArrowRightLong} from "react-icons/fa6"
 import {Link} from "react-router"
-import {Helmet} from "react-helmet-async"
 
 export function Home() {
   return (
     <React.Fragment>
-      <Helmet>
-        <title>Amazen Trust</title>
-        <meta
-          name="description"
-          content="Secure Trades, Smart Authentication Ultimate Trust"
-        />
-        <meta
-          name="keywords"
-          content="blockchain, cryptocurrency, profit, P2P, trade"
-        />
-      </Helmet>
       <HeroSection />
       <FeaturesSection />
       <PeerMarketSection />
