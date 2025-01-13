@@ -12,10 +12,10 @@ const SellToken = () => {
         />
         <div className="flex flex-col items-center justify-center gap-6">
           <h2 className="flex flex-col items-center justify-center">
-            <span className="text-3xl font-semibold text-orange-600 uppercase">
+            <span className="text-4xl font-bold text-orange-600 uppercase">
               Buy AMZ Now
             </span>
-            <span className="text-4xl font-bold">at the Early Bird Price!</span>
+            <span className="text-3xl font-bold">at the Early Bird Price!</span>
           </h2>
           <p className="leading-relaxed text-center text-gray-400">
             Be the First to Join the Revolution <br /> and Shape the Future of
