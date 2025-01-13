@@ -1,25 +1,65 @@
-import {logoFooter, LogoIcon, Usdc} from "@/assets"
+import {Usdc, logoFooter, LogoIcon} from "@/assets"
+import {useAccount} from "wagmi"
+import {useForm, SubmitHandler} from "react-hook-form"
+import {formatNumber} from "@/lib/formatNumber"
 
-const sellBoxitems = [
-  {
-    title: "you pay",
-    input: "text",
-    placeHolder: "$100 - $1000",
-    icon: <Usdc className=" text-[40px] " />,
-  },
-  {
-    title: "you receive",
-    input: "text",
-    placeHolder: "25.000 AMZ - 250.000 AMZ",
-    icon: (
-      <div className="p-2 bg-orange-500 rounded-full w-fit h-fit">
-        <LogoIcon className="text-2xl" />
-      </div>
-    ),
-  },
-]
+type Inputs = {
+  pay: string
+}
+
+type SellBoxItem = {
+  title: string
+  inputName: string
+  input: React.ReactNode
+  icon: React.ReactNode
+}
 
 const SellToken = () => {
+  const userAccount = useAccount()
+
+  const {register, handleSubmit, watch} = useForm<Inputs>()
+
+  const total = formatNumber(Number(watch("pay")) / 0.004)
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
+  const sellBoxitems: SellBoxItem[] = [
+    {
+      title: "you pay",
+      inputName: "pay",
+      input: (
+        <input
+          type="number"
+          min="0"
+          {...register("pay")}
+          placeholder="$100 - $1000"
+          className="w-full p-2 text-2xl bg-transparent outline-none placeholder:text-slate-600 placeholder:text-sm lg:placeholder:text-lg disabled:cursor-not-allowed"
+          disabled={!userAccount.isConnected}
+        />
+      ),
+      icon: <Usdc className=" text-[40px] " />,
+    },
+    {
+      title: "you receive",
+      inputName: "receive",
+      input: (
+        <input
+          type="text"
+          placeholder="25.000 AMZ - 250.000 AMZ"
+          className="w-full p-2 text-2xl bg-transparent outline-none placeholder:text-slate-600 placeholder:text-sm lg:placeholder:text-lg disabled:cursor-not-allowed"
+          disabled={!userAccount.isConnected}
+          readOnly
+          value={total > "0" ? total : ""}
+        />
+      ),
+      icon: (
+        <div className="p-2 bg-orange-500 rounded-full w-fit h-fit">
+          <LogoIcon className="text-2xl" />
+        </div>
+      ),
+    },
+  ]
+
   return (
     <div className="bg-black">
       <div className="relative flex flex-row flex-wrap items-center justify-center overflow-hidden">
@@ -44,22 +84,34 @@ const SellToken = () => {
           </p>
         </div>
       </div>
+
       <div className="flex flex-row items-center justify-around px-2 py-4 lg:px-0">
-        <div className="flex flex-col gap-4 p-4 border lg:p-6 rounded-2xl border-slate-800">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-4 p-4 border lg:p-6 rounded-2xl border-slate-800"
+        >
+          <w3m-button size="sm" />
           {sellBoxitems.map((item, index) => (
             <div
               key={index}
-              className="flex flex-row items-end justify-center gap-4 p-6 border rounded-2xl border-slate-800"
+              className={`flex flex-row items-end justify-center gap-4 p-6 border rounded-2xl border-slate-800 ${
+                userAccount.isConnected
+                  ? " opacity-100 cursor-auto"
+                  : " opacity-40 cursor-not-allowed"
+              }`}
             >
-              <div className="flex flex-col items-start justify-center gap-4">
-                <span className="text-sm tracking-wider capitalize">
+              <div className="flex flex-col items-start justify-center gap-4 group">
+                <label
+                  htmlFor={item.inputName}
+                  className={`text-sm tracking-wider capitalize ${
+                    userAccount.isConnected
+                      ? " opacity-100 cursor-auto"
+                      : " opacity-40 cursor-not-allowed"
+                  }`}
+                >
                   {item.title}
-                </span>
-                <input
-                  type={item.input}
-                  placeholder={item.placeHolder}
-                  className="w-full p-2 text-2xl bg-transparent outline-none placeholder:text-slate-600 placeholder:text-sm lg:placeholder:text-lg"
-                />
+                </label>
+                {item.input}
               </div>
               {item.icon}
             </div>
@@ -70,11 +122,11 @@ const SellToken = () => {
           </div>
           <button
             className="w-full p-3 text-sm font-semibold tracking-wider uppercase bg-orange-500 rounded-full disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed"
-            disabled
+            disabled={!userAccount.isConnected}
           >
-            will be avalible soon
+            {userAccount.isConnected ? "buy AMZ now" : "connect your wallet"}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   )
