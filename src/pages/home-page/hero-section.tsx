@@ -1,4 +1,4 @@
-import {logoShield, heroBg} from "@/assets"
+import {logoShield} from "@/assets"
 import {AuroraBackground} from "@/components/ui/aurora-background"
 import {FaArrowRightLong} from "react-icons/fa6"
 import {motion} from "framer-motion"
@@ -12,8 +12,9 @@ const HeroSection = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative w-full overflow-hidden h-section-header"
+      className="relative w-full overflow-hidden h-section-header bg-grid-small-white/[0.1]"
     >
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="absolute inset-0 z-40 flex flex-col items-center justify-start py-8 mx-auto space-y-8 text-center xl:space-y-6 w-max">
         <motion.h1
           initial={{opacity: 0, x: -75}}
@@ -39,7 +40,7 @@ const HeroSection = () => {
           transition={{duration: 1, delay: 1}}
         >
           <Link
-            to={"/"}
+            to={"/sell-amz"}
             className="relative flex flex-row items-center gap-x-5 px-6 py-2 text-sm font-bold text-[#4a2e0c] bg-gradient-to-r from-white to-[#f8f1e9] rounded-full shadow-[0_0_10px_rgba(255,154,85,0.6),0_0_40px_rgba(255,154,85,0.4)] hover:shadow-[0_0_20px_rgba(255,154,85,0.8),0_0_60px_rgba(255,154,85,0.6)] transition-all duration-300 ease-in-out group"
           >
             <span className="absolute top-0 right-0 rounded-full w-9 h-9 bg-gradient-to-r from-orange-600 to-orange-300 blur-lg"></span>
@@ -61,12 +62,6 @@ const HeroSection = () => {
         alt="logo shield"
         draggable="false"
       />
-      <img
-        src={heroBg}
-        alt=" hero bg"
-        className="absolute top-0 z-10 object-cover select-none opacity-5"
-      />
-      <div className="absolute bottom-0 z-30 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
     </section>
   )
 }

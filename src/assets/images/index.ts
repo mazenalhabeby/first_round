@@ -13,6 +13,11 @@ import sdkLogin from "./sdk_login.png"
 import bgBoxes from "./background_boxes.jpg"
 import heroBg from "./hero_background.jpg"
 import logoFooter from "./logo_footer.png"
+import electroBg from "./elctro_bg.png"
+import layers from "./layers.png"
+import p2p from "./p2p.png"
+import sdk from "./sdk.png"
+import network from "./network.png"
 export {
   blueGlowing,
   featureImages,
@@ -29,4 +34,9 @@ export {
   bgBoxes,
   heroBg,
   logoFooter,
+  electroBg,
+  layers,
+  p2p,
+  sdk,
+  network,
 }

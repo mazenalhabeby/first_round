@@ -1,9 +1,9 @@
 import React from "react"
 import HeroSection from "./hero-section"
-import FeaturesSection from "./features-section"
+import {FeaturesSection} from "./features-section"
 import PeerMarketSection from "./peer-market-section"
-import UserManagmentSection from "./user-managment-section"
-import RoadmapSection from "./roadmap-section"
+import {UserManagmentSection} from "./user-managment-section"
+import {RoadmapSection} from "./roadmap-section"
 import NetworkSection from "./network-section"
 import {logoFooter} from "@/assets"
 import {FaArrowRightLong} from "react-icons/fa6"
@@ -33,7 +33,7 @@ export function Home() {
             global connections.
           </p>
           <Link
-            to={"/"}
+            to={"/sell-amz"}
             className="relative flex flex-row items-center gap-x-5 px-6 py-2 text-sm font-bold text-[#4a2e0c] bg-gradient-to-r from-white to-[#f8f1e9] rounded-full shadow-[0_0_10px_rgba(255,154,85,0.6),0_0_40px_rgba(255,154,85,0.4)] hover:shadow-[0_0_20px_rgba(255,154,85,0.8),0_0_60px_rgba(255,154,85,0.6)] transition-all duration-300 ease-in-out group"
           >
             <span className="absolute top-0 right-0 rounded-full w-9 h-9 bg-gradient-to-r from-orange-600 to-orange-300 blur-lg"></span>

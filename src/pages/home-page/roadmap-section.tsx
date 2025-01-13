@@ -1,3 +1,5 @@
+"use client"
+
 import {Timeline} from "@/components/ui/timeline"
 import {FaSquareCheck} from "react-icons/fa6"
 import {Holding, Progress} from "@/assets"
@@ -240,7 +242,7 @@ const roadMapData: roadMapDataType[] = [
   },
 ]
 
-const RoadmapSection = () => {
+export const RoadmapSection = () => {
   const checkStatus = (item: statusType, fontSize: string) => {
     return item === "done" ? (
       <FaSquareCheck className={`${fontSize} text-green-600`} />
@@ -290,10 +292,8 @@ const RoadmapSection = () => {
   }))
 
   return (
-    <div id="roadmap" className="w-full bg-white">
+    <section id="roadmap" className="w-full">
       <Timeline data={data} />
-    </div>
+    </section>
   )
 }
-
-export default RoadmapSection

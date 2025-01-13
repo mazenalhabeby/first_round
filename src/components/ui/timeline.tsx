@@ -30,8 +30,8 @@ export const Timeline = ({data}: {data: TimelineEntry[]}) => {
   return (
     <div className="w-full font-sans md:px-10" ref={containerRef}>
       <div className="px-4 py-20 mx-auto max-w-7xl md:px-8 lg:px-10">
-        <h2 className="py-4 text-4xl font-bold text-black">Project Roadmap</h2>
-        <p className="max-w-sm text-lg text-gray-500">
+        <h2 className="py-4 text-4xl font-bold">Project Roadmap</h2>
+        <p className="max-w-xl text-lg text-gray-400">
           Amazen Trust aims to revolutionize the cryptocurrency and fiat
           transaction ecosystem by providing a seamless, low-cost, and secure
           platform for P2P trading. It also aspires to offer advanced user
@@ -47,15 +47,16 @@ export const Timeline = ({data}: {data: TimelineEntry[]}) => {
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
             <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
-              <div className="absolute flex items-center justify-center w-10 h-10 bg-black rounded-full left-3 md:left-3">
+              <div className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full left-3 md:left-3 dark:bg-slate-600">
                 <div className="w-4 h-4 p-2 bg-orange-500 border-2 rounded-full border-neutral-200" />
               </div>
-              <h3 className="hidden text-xl font-bold text-black md:block md:pl-20 lg:text-3xl ">
+              <h3 className="hidden text-xl font-bold md:block md:pl-20 md:text-5xl text-neutral-500 dark:text-neutral-500 ">
                 {item.title}
               </h3>
             </div>
-            <div className="relative flex flex-col w-full gap-8 pl-20 pr-4 md:pl-4">
-              <h3 className="block mb-4 text-2xl font-bold text-left text-gray-900 md:hidden">
+
+            <div className="relative flex flex-col w-full pl-20 pr-4 md:pl-4 gap-y-8">
+              <h3 className="block mb-4 text-2xl font-bold text-left md:hidden text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
               {item.content}
@@ -73,7 +74,7 @@ export const Timeline = ({data}: {data: TimelineEntry[]}) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-orange-500 via-red-300 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
       </div>

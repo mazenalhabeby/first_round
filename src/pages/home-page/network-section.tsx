@@ -390,8 +390,9 @@ const NetworkSection = () => {
   return (
     <div
       id="network"
-      className="relative flex flex-row items-center justify-center w-full h-auto py-10"
+      className="relative flex flex-row items-center justify-center w-full h-auto py-10 bg-black bg-dot-white/[0.2] "
     >
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
         <motion.div
           initial={{
@@ -407,14 +408,14 @@ const NetworkSection = () => {
           }}
           className="div"
         >
-          <h2 className="py-2 text-5xl font-bold text-center text-black lg:text-6xl dark:text-white">
+          <h2 className="py-2 text-4xl font-bold text-center text-black lg:text-5xl dark:text-white">
             ALL That with
           </h2>
-          <h3 className="text-2xl font-bold text-center text-black lg:text-4xl dark:text-white">
+          <h3 className="text-xl font-bold text-center text-black lg:text-2xl dark:text-white">
             The Future of Secure Decentralized Data:
             <br /> Own a Part of the Wild Network
           </h3>
-          <p className="max-w-md mx-auto mt-2 text-lg font-normal leading-relaxed tracking-wider text-center text-neutral-700 dark:text-neutral-200">
+          <p className="max-w-md py-4 mx-auto mt-2 font-normal leading-relaxed tracking-wider text-center text-neutral-700 dark:text-neutral-400">
             A revolutionary decentralized data center where users can own secure
             servers, creating a powerful, resilient, and user-driven network for
             the modern digital age.

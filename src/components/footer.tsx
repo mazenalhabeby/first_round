@@ -5,8 +5,8 @@ import {Link} from "react-router"
 
 const Footer = () => {
   return (
-    <div className="flex flex-row flex-wrap items-center justify-center gap-6 py-6 text-sm text-center xl:gap-20">
-      <span className="text-gray-500">
+    <div className="flex flex-row flex-wrap items-center justify-center gap-6 py-6 text-sm text-center bg-black xl:gap-20">
+      <span className="text-gray-500 ">
         Copyright &copy; {new Date().getFullYear()} Amazen Trust. All rights
         reserved.
       </span>
@@ -24,9 +24,11 @@ const Footer = () => {
         </li>
       </ul>
       <div className="flex flex-row items-center gap-2">
-        <span>Built with Trust, Powered by Innovation</span>
+        <span className="text-xs lg:text-sm">
+          Built with Trust, Powered by Innovation
+        </span>
         <LogoIcon className="text-xl text-orange-400" />
-        <span className="font-semibold tracking-wider uppercase">
+        <span className="text-[10px] lg:text-sm font-semibold tracking-wider uppercase">
           Amazen Trust
         </span>
       </div>
