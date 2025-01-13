@@ -2,8 +2,8 @@ import {logoFooter} from "@/assets"
 
 const SellToken = () => {
   return (
-    <div className="">
-      <div className="relative flex flex-row flex-wrap items-center justify-center w-full overflow-hidden bg-black">
+    <div className="bg-black">
+      <div className="relative flex flex-row flex-wrap items-center justify-center w-full overflow-hidden">
         <img
           src={logoFooter}
           alt="logo footer"

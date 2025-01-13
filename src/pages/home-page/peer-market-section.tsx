@@ -86,10 +86,10 @@ const PeerMarketSection = () => {
               draggable="false"
             />
             <div className="flex flex-col space-y-2">
-              <h1 className="text-2xl font-semibold text-black dark:text-white">
+              <h1 className="text-xl font-semibold text-black dark:text-white">
                 {feature.title}
               </h1>
-              <p className="text-lg text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500  dark:text-gray-400">
                 {feature.description}
               </p>
             </div>

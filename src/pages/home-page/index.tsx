@@ -27,7 +27,7 @@ export function Home() {
         />
         <div className="flex flex-col items-start justify-center gap-6">
           <h2 className="text-4xl font-bold">Empower the Future with Us</h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-gray-400">
             Be part of a platform redefining secure transactions,
             <br className="hidden lg:block" /> decentralized innovation, and
             global connections.

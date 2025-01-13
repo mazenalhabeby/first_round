@@ -62,6 +62,7 @@ const HeroSection = () => {
         alt="logo shield"
         draggable="false"
       />
+      <div className="absolute bottom-0 z-40 w-full h-28 bg-gradient-to-t from-black to-transparent"></div>
     </section>
   )
 }
