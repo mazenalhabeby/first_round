@@ -46,7 +46,9 @@ const SellToken = () => {
         <input
           type="text"
           placeholder="25.000 AMZ - 250.000 AMZ"
-          className="w-full p-2 text-2xl bg-transparent outline-none placeholder:text-slate-600 placeholder:text-sm lg:placeholder:text-lg disabled:cursor-not-allowed"
+          className={`${
+            !userAccount.isConnected && " opacity-0"
+          } w-full p-2 text-2xl bg-transparent outline-none placeholder:text-slate-600 placeholder:text-sm lg:placeholder:text-lg disabled:cursor-not-allowed`}
           disabled={!userAccount.isConnected}
           readOnly
           value={total > "0" ? total : ""}
@@ -122,9 +124,19 @@ const SellToken = () => {
           </div>
           <button
             className="w-full p-3 text-sm font-semibold tracking-wider uppercase bg-orange-500 rounded-full disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed"
-            disabled={!userAccount.isConnected}
+            disabled={
+              !userAccount.isConnected ||
+              Number(watch("pay")) < 100 ||
+              Number(watch("pay")) > 1000
+            }
           >
-            {userAccount.isConnected ? "buy AMZ now" : "connect your wallet"}
+            {Number(watch("pay")) < 100
+              ? "the minimum amount is $100"
+              : Number(watch("pay")) > 1000
+              ? "the maxmum amount is $1000"
+              : userAccount.isConnected
+              ? "buy AMZ now"
+              : "connect your wallet"}
           </button>
         </form>
       </div>
